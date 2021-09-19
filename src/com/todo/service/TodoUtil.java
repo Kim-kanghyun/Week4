@@ -32,11 +32,11 @@ public class TodoUtil {
 	public static void deleteItem(TodoList l) {
 		
 		Scanner sc = new Scanner(System.in);
-		String title = sc.next();
+		
 		
 		System.out.print("[항목 삭제]\n"
 				+ "삭제할 항목의 제목을 입력하시오 > ");
-		
+		String title = sc.next();
 		for (TodoItem item : l.getList()) {
 			if (title.equals(item.getTitle())) {
 				l.deleteItem(item);
