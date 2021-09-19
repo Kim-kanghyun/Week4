@@ -64,9 +64,9 @@ public class TodoUtil {
 			System.out.println("제목이 중복됩니다!");
 			return;
 		}
-		
+		sc.nextLine();
 		System.out.println("새 내용 > ");
-		String new_description = sc.next().trim();
+		String new_description = sc.nextLine().trim();
 		for (TodoItem item : l.getList()) {
 			if (item.getTitle().equals(title)) {
 				l.deleteItem(item);
