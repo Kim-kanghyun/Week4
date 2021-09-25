@@ -101,6 +101,7 @@ public class TodoUtil {
 	
 	public static void cate(TodoList l) {
 		Set hashSet=new HashSet();
+		int i=0;
 		for(TodoItem myitem : l.getList()) {
 			hashSet.add(myitem.getCategory());
 		}
@@ -113,7 +114,9 @@ public class TodoUtil {
 			else {
 				System.out.print(" / ");
 			}
+			i++;
 		}
+		System.out.println("총 "+i+"개의 카테고리가 등록되어 있습니다.");
 	}
 
 	public static void saveList(TodoList l,String filename) {
