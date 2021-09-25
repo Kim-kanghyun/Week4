@@ -1,7 +1,6 @@
 package com.todo;
 
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import com.todo.dao.TodoList;
@@ -10,7 +9,7 @@ import com.todo.service.TodoUtil;
 
 public class TodoMain {
 	
-	public static void start() throws IOException{
+	public static void start(){
 	
 		Scanner sc = new Scanner(System.in);
 		TodoList l = new TodoList();
@@ -40,7 +39,7 @@ public class TodoMain {
 				TodoUtil.listAll(l);
 				break;
 
-			case "ls_name_asc":
+			case "ls_name":
 				l.sortByName();
 				System.out.println("제목순으로 정렬하였습니다.");
 				isList = true;
@@ -58,11 +57,31 @@ public class TodoMain {
 				System.out.println("날짜순으로 정렬하였습니다.");
 				isList = true;
 				break;
+			case "ls_date_desc":
+				l.sortByDate();
+				l.reverseList();
+				System.out.println("최신순으로 정렬하였습니다.");
+				isList = true;
+				break;
 
 			case "help":
 				Menu.displaymenu();
 				break;
 			
+			case "find":
+				String word= sc.next();
+				TodoUtil.findWord(l, word);
+				break;
+				
+			case "find_cate":
+				String cate= sc.next();
+				TodoUtil.findCategory(l, cate);
+				break;
+			
+			case "ls_cate":
+				TodoUtil.cate(l);
+				break;
+				
 			case "exit":
 				quit = true;
 				break;

@@ -36,10 +36,17 @@ public class TodoList {
 	}
 
 	public void listAll() {
-		System.out.println("[전체 목록]");
+		System.out.println("[전체 목록, 총 "+list.size()+"개]");
+		int count=1;
 		for (TodoItem myitem : list) {
+			System.out.print(count+". ");
 			System.out.println(myitem.toString());
+			count++;
 		}
+	}
+	
+	public int getSize() {
+		return list.size();
 	}
 	
 	public void reverseList() {
